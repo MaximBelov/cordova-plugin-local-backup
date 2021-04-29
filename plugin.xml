@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-local-backup" version="1.0.0">
+    <name>Local Backup</name>
+    <description>Cordova Local Backup Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,backup</keywords>
+
+    <js-module src="www/local-backup.js" name="LocalBackup">
+        <clobbers target="LocalBackup" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <source-file src="src/android/LocalBackup.java" target-dir="src/org/apache/cordova/localbackup" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="LocalBackup" >
+                <param name="android-package" value="org.apache.cordova.LocalBackup"/>
+<!--                <param name="onload" value="true" />-->
+            </feature>
+        </config-file>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+      <config-file target="config.xml" parent="/*">
+        <feature name="LocalBackup">
+          <param name="ios-package" value="LocalBackup"/>
+        </feature>
+      </config-file>
+
+      <header-file src="src/ios/LocalBackup.h" />
+      <source-file src="src/ios/LocalBackup.m" />
+    </platform>
+
+</plugin>
