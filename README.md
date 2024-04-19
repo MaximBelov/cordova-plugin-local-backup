@@ -8,4 +8,4 @@
 
 ### Prod version
 
-    $ npm i @ionic-native/local-backup
+    $ npm i @awesome-cordova-plugins/local-backup
